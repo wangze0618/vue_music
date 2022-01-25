@@ -2,37 +2,35 @@
   <div>
     <p class="title">推荐歌单</p>
     <van-row gutter="10">
-      <van-col span="8">
-        <van-image
-          width="100%"
-          height="7rem"
-          fit="cover"
-          src="https://img01.yzcdn.cn/vant/cat.jpeg"
-        />
-        <p class="song_name">我是个蛋啊</p>
-      </van-col>
-      <van-col span="8">
-        <van-image
-          width="100%"
-          height="7rem"
-          fit="cover"
-          src="https://img01.yzcdn.cn/vant/cat.jpeg"
-        />
-      </van-col>
-      <van-col span="8">
-        <van-image
-          width="100%"
-          height="7rem"
-          fit="cover"
-          src="https://img01.yzcdn.cn/vant/cat.jpeg"
-        />
+      <van-col span="8" v-for="item in recomArr" :key="item.id">
+        <van-image width="100%" height="7rem" fit="cover" :src="item.picUrl" />
+        <p class="song_name">{{ item.name }}</p>
       </van-col>
     </van-row>
+    <p class="title">最新音乐</p>
+    <van-cell-group>
+      <van-cell title="单元格" value="内容" />
+      <van-cell title="单元格" value="内容" label="描述信息" />
+    </van-cell-group>
   </div>
 </template>
 
 <script>
-export default {};
+import { recommendMusicAPI } from "../../api/index";
+import { newMusicAPI } from "../../api/index";
+
+export default {
+  data() {
+    return {
+      recomArr: [],
+      newSongArr: [],
+    };
+  },
+  async created() {
+    const recomRes = await recommendMusicAPI({ limit: 6 });
+    this.recomArr = recomRes.data.result;
+  },
+};
 </script>
 
 <style scoped>
@@ -48,7 +46,7 @@ export default {};
 .song_name {
   font-size: 0.346667rem;
   padding: 0 0.08rem;
-  margin-bottom: 0.266667rem;
+  margin-bottom: 0.566667rem;
   word-break: break-all;
   text-overflow: ellipsis;
   display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/

@@ -9,7 +9,10 @@ import { NavBar } from 'vant';
 import { Tabbar, TabbarItem } from 'vant';
 import { Col, Row } from 'vant';
 import { Image as VanImage } from 'vant';
+import { Cell, CellGroup } from 'vant';
 
+Vue.use(Cell);
+Vue.use(CellGroup);
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
 Vue.use(NavBar);
