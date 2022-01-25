@@ -1,6 +1,33 @@
 <template>
   <div>
-    <p>我是home</p>
+    <p class="title">推荐歌单</p>
+    <van-row gutter="10">
+      <van-col span="8">
+        <van-image
+          width="100%"
+          height="7rem"
+          fit="cover"
+          src="https://img01.yzcdn.cn/vant/cat.jpeg"
+        />
+        <p class="song_name">我是个蛋啊</p>
+      </van-col>
+      <van-col span="8">
+        <van-image
+          width="100%"
+          height="7rem"
+          fit="cover"
+          src="https://img01.yzcdn.cn/vant/cat.jpeg"
+        />
+      </van-col>
+      <van-col span="8">
+        <van-image
+          width="100%"
+          height="7rem"
+          fit="cover"
+          src="https://img01.yzcdn.cn/vant/cat.jpeg"
+        />
+      </van-col>
+    </van-row>
   </div>
 </template>
 
@@ -12,7 +39,7 @@ export default {};
 /* 标题 */
 .title {
   padding: 0.266667rem 0.24rem;
-  margin: 0 0 0.24rem 0;
+  margin: 0 0 0.5rem 0;
   background-color: #eee;
   color: #333;
   font-size: 15px;
