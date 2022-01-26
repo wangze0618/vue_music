@@ -14,7 +14,11 @@
         :label="obj.song.artists[0].name + ' - ' + obj.name"
       >
         <template #right-icon>
-          <van-icon name="play-circle-o" class="play-icon" />
+          <van-icon
+            name="play-circle-o"
+            class="play-icon"
+            @click="playFn(obj.id)"
+          />
         </template>
       </van-cell>
     </van-cell-group>
@@ -30,6 +34,16 @@ export default {
       recomArr: [],
       newSongArr: [],
     };
+  },
+  methods: {
+    playFn(id) {
+      this.$router.push({
+        path: "/play",
+        query: {
+          id: id,
+        },
+      });
+    },
   },
   async created() {
     const recomRes = await recommendMusicAPI({ limit: 6 });

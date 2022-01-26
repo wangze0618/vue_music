@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- NavBar -->
-    <van-nav-bar :title="$route.meta.title" />
+    <van-nav-bar fixed :title="$route.meta.title" />
 
     <!-- 一级路由-显示的地方 -->
     <router-view></router-view>

@@ -10,7 +10,7 @@ import { Tabbar, TabbarItem } from 'vant';
 import { Col, Row } from 'vant';
 import { Image as VanImage } from 'vant';
 import { Cell, CellGroup, Icon } from 'vant';
-import { Search } from 'vant';
+import { Search, List } from 'vant';
 
 Vue.use(Search);
 Vue.use(Cell);
@@ -22,6 +22,7 @@ Vue.use(Col);
 Vue.use(Row);
 Vue.use(VanImage);
 Vue.use(Icon)
+Vue.use(List)
 
 
 Vue.config.productionTip = false
