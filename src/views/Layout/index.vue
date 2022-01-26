@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main">
     <!-- 二级挂载点 -->
     <router-view></router-view>
   </div>
@@ -11,8 +11,8 @@ export default {};
 
 <style scoped>
 /* 中间内容区域 - 容器样式(留好上下导航所占位置) */
+
 .main {
-  padding-top: 46px;
-  padding-bottom: 50px;
+  padding: 0 0 50px 0 !important;
 }
 </style>

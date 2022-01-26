@@ -9,7 +9,8 @@ export const recommendMusic = (params) => axios({
 })
 
 // 首页 - 推荐最新音乐
-export const newMusic = (params) => axios({
-    url: "/personalized/newsong",
-    params
-})
+export const
+    newMusic = (params) => axios({
+        url: "/personalized/newsong",
+        params
+    })

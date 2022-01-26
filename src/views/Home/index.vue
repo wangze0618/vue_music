@@ -8,16 +8,21 @@
       </van-col>
     </van-row>
     <p class="title">最新音乐</p>
-    <van-cell-group>
-      <van-cell title="单元格" value="内容" />
-      <van-cell title="单元格" value="内容" label="描述信息" />
+    <van-cell-group v-for="obj in newSongArr" :key="obj.id">
+      <van-cell
+        :title="obj.name"
+        :label="obj.song.artists[0].name + ' - ' + obj.name"
+      >
+        <template #right-icon>
+          <van-icon name="play-circle-o" class="play-icon" />
+        </template>
+      </van-cell>
     </van-cell-group>
   </div>
 </template>
 
 <script>
-import { recommendMusicAPI } from "../../api/index";
-import { newMusicAPI } from "../../api/index";
+import { recommendMusicAPI, newMusicAPI } from "../../api/index";
 
 export default {
   data() {
@@ -28,7 +33,9 @@ export default {
   },
   async created() {
     const recomRes = await recommendMusicAPI({ limit: 6 });
+    const newSongRes = await newMusicAPI({ limit: 20 });
     this.recomArr = recomRes.data.result;
+    this.newSongArr = newSongRes.data.result;
   },
 };
 </script>
@@ -46,12 +53,19 @@ export default {
 .song_name {
   font-size: 0.346667rem;
   padding: 0 0.08rem;
-  margin-bottom: 0.566667rem;
+  margin-bottom: 0.366667rem;
   word-break: break-all;
   text-overflow: ellipsis;
   display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
   -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
   -webkit-line-clamp: 2; /** 显示的行数 **/
   overflow: hidden; /** 隐藏超出的内容 **/
+}
+.van-cell {
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+}
+.play-icon {
+  font-size: 1.3rem;
 }
 </style>
